@@ -1,19 +1,51 @@
 console.log('This is an inventory managment application for making works easier and reliable.')
-class Item {
-  constructor(id, system, brand, modelCode, description, unit, quantity) {
-    this.id = id // material number
-    this.system = system // related system
-    this.brand = brand // material brand
-    this.modelCode = modelCode // material model code
-    this.description = description // material description
-    this.unit = unit // material unit
-    this.quantity = quantity // material quantity
-    defects = [] //
-    faultlessQty = ''
-    defectiveQty = ''
-    totalQty = faultlessQty + defectiveQty
+// This app will manage inventory of warehouse and will be able to track inventory items and replacements via Vendors
+
+/*
+
+*/
+
+this.serialNumber = serialNumber // material serial number
+class InventoryItem {
+  constructor(
+    id,
+    system,
+    brand,
+    modelCode,
+    serialNumber,
+    description,
+    unit,
+    availableQuantity,
+    defectiveQuantity,
+    inServiceQuantity,
+    disposedQuantity
+  ) {
+    this.id = id // item number, this property will be replaced with database id when it is connected to database
+    this.system = system // related system, selection from dropdown: system list to be created
+    this.brand = brand // selection from dropdown: vendor list to be created
+    this.modelCode = modelCode // if there is no model code, it will be replaced with description or auto-generated unique code
+    this.description = description
+    this.unit = unit // selection from dropdown: piece, meter, kilogram, etc.
+    this.availableQuantity = availableQuantity // new or repaired items quantity
+    this.defectiveQuantity = defectiveQuantity // defective items quantity
+    this.inServiceQuantity = inServiceQuantity // items sent to vendor or repair shop for inspenction and replace or repair depends warranty status
+    this.disposedQuantity = disposedQuantity // disposed items quantity, will be functional during later stages of the app development
+    // price = '' // LATER-STAGE, purchased prices with dates
   }
 }
+
+class incident {
+  let items = []
+  constructor(id, date) {
+    this.modelCode = modelCode
+    this.condition = condition // material condition, selection from dropdown: new, defective, waste (! find better definition)
+  }
+  // will be connected to new detailed incident class and will be able to track replacement items and their status
+  // will be modified to multiple item class
+  // classes: incidentId, incidentDate etc.
+}
+
+// LATER-STAGE warrantyExpireDate = '' // material warranty expire date
 
 let defectId = 0
 
