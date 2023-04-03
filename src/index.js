@@ -5,14 +5,12 @@ console.log('This is an inventory managment application for making works easier 
 
 */
 
-this.serialNumber = serialNumber // material serial number
 class InventoryItem {
   constructor(
     id,
     system,
     brand,
     modelCode,
-    serialNumber,
     description,
     unit,
     availableQuantity,
@@ -34,18 +32,32 @@ class InventoryItem {
   }
 }
 
-class incident {
-  let items = []
-  constructor(id, date) {
-    this.modelCode = modelCode
-    this.condition = condition // material condition, selection from dropdown: new, defective, waste (! find better definition)
+class Incident {
+  constructor(id) {
+    this.id = id // ??? How can I give initial number and increment it by 1 for each new incident?
+    this.date = Date.now()
+    this.returnedItems = []
+    this.recievedItems = []
+
+    returnItemByModel(modelNo)
+    // incident date
   }
+
   // will be connected to new detailed incident class and will be able to track replacement items and their status
   // will be modified to multiple item class
   // classes: incidentId, incidentDate etc.
 }
 
-// LATER-STAGE warrantyExpireDate = '' // material warranty expire date
+this.condition = condition // material condition, selection from dropdown: new, defective, waste (! find better definition)
+this.returnedItems = [] // will be modified to multiple item class
+class DefectiveItems {
+  constructor(modelCode, quantity) {
+    this.id = id
+    this.quantity = quantity
+  }
+}
+// ??? Super class
+// !! LATER-STAGE warrantyExpireDate = '' // material warranty expire date
 
 let defectId = 0
 
@@ -64,6 +76,10 @@ class delivery {
     this.quantity = quantity
   }
 }
+
+// this.serialNumber = serialNumber // material serial number
+
+// -----------------------------------------------------------------------
 
 // const numan = {
 //   name: 'Numan',
