@@ -2,12 +2,11 @@ console.log('This is an inventory managment application for making works easier 
 // This app will manage inventory of warehouse and will be able to track inventory items and replacements via Vendors
 
 /*
-
-*/
+ */
 
 class InventoryItem {
   constructor(
-    id,
+    // id,
     system,
     brand,
     modelCode,
@@ -18,7 +17,7 @@ class InventoryItem {
     inServiceQuantity,
     disposedQuantity
   ) {
-    this.id = id // item number, this property will be replaced with database id when it is connected to database
+    //this.id = id // item number, this property will be replaced with database id when it is connected to database
     this.system = system // related system, selection from dropdown: system list to be created
     this.brand = brand // selection from dropdown: vendor list to be created
     this.modelCode = modelCode // if there is no model code, it will be replaced with description or auto-generated unique code
@@ -33,20 +32,28 @@ class InventoryItem {
 }
 
 class Incident {
-  constructor(id) {
+  static counter = 0
+
+  constructor(inItems) {
+    let id = Incident.counter++
+
     this.id = id // ??? How can I give initial number and increment it by 1 for each new incident?
-    this.date = Date.now()
+    this.date = Date.now() // change to request date and create new date for each new incident
     this.returnedItems = []
     this.recievedItems = []
-
-    returnItemByModel(modelNo)
-    // incident date
   }
+  //   returnItemByModel (modelNo, condition, quantity) {
+  //     const
+  //   }
+  // }
 
+  // incident date
   // will be connected to new detailed incident class and will be able to track replacement items and their status
   // will be modified to multiple item class
   // classes: incidentId, incidentDate etc.
 }
+
+const  = new Incident()
 
 this.condition = condition // material condition, selection from dropdown: new, defective, waste (! find better definition)
 this.returnedItems = [] // will be modified to multiple item class
